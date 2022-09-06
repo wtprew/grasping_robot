@@ -1,0 +1,12 @@
+numpy
+opencv-python
+matplotlib
+scikit-image
+imageio==2.6 #for python2.7
+torch
+torchvision
+torchsummary
+pyrealsense2
+matplotlib
+tensorboard
+Pillow
