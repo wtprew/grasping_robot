@@ -3,3 +3,4 @@ __pycache__
 .vscode
 datacollection.py
 generate_figures.py
+trained_models

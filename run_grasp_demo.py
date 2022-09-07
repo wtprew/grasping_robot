@@ -15,7 +15,7 @@ def parse_args():
 	parser.add_argument('--use-width', action='store_true', help='Use width output to control gripper width for grasping')
 	parser.add_argument('--width_scaling', type=int, default=30, help='max gripper width')
 	parser.add_argument('--bins', type = int, default=1, help='number of output bins to consider')
-	parser.add_argument('--network', type=str, help='model to load weights to')
+	parser.add_argument('--network', default='gr', type=str, help='model to load weights to')
 	parser.add_argument('--network-path', type=str, default='~/grasping+robot/trained_models/GRConv_RGBD_Pos_1bin/epoch_33_iou_0.91', help='Path to trained network')
 	parser.add_argument('-s', '--start', type=int, default=0, help='Starting grasp attempt')
 	parser.add_argument('-a', '--attempts', type=int, default=20, help='Number of cycles to try')
@@ -42,8 +42,8 @@ if __name__ == '__main__':
 		bins = args.bins,
 		visualise=args.vis
 	)
-	if args.network is not None:
-		generator.load_model_dict(args.network)
-	else:
-		generator.load_model()
+	# if args.network is not None:
+	generator.load_model_dict(args.network)
+	# else:
+	# 	generator.load_model()
 	generator.run()

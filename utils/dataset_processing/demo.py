@@ -13,7 +13,6 @@ import torch
 
 from hardware.camera import RealSenseCamera
 from hardware.device import get_device
-from skimage.metrics import structural_similarity as ssim
 from utils.dataset_processing.evaluation import plot_output
 
 from ..visualisation.plot import plot_grasp, plot_output
@@ -62,7 +61,8 @@ class GraspGenerator:
 		self.handle_as_ggcnn = False
 		self.bins=bins
 
-		datapath = os.path.join('/home/capture/ros_ws/intrinsics')
+		#change datapath to location of saved intrinsic data
+		datapath = os.path.join(os.path.expanduser( '~' ), 'ros_ws/intrinsics')
 		self.cm = np.load(os.path.join(datapath, 'camera_pose.npy'))
 
 		# self.inv_cm = np.linalg.inv(self.cm)
@@ -79,10 +79,6 @@ class GraspGenerator:
 		self.fig = plt.figure()
 		self.gs = gridspec.GridSpec(3, self.bins+3)
 		self.gs.tight_layout(self.fig)
-
-		# self.grasp_flag = 1
-		# i = threading.Thread(target=self.get_input)
-		# i.start()
 
 		plt.ion()
 

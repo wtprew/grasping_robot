@@ -1,12 +1,13 @@
 import numpy as np
 from geometry_msgs.msg import Quaternion
+import os
 
-homedir = '~/ros_ws/intrinsics'
 
-# MODELS
-
+#change these paths to the location of your robot intrinsics and where you would like to save your data
+home_directory = os.path.expanduser( '~' )
+homedir = os.path.join(home_directory, 'ros_ws/intrinsics')
 # DATA COLLECTION
-DATAPATH = '~/grasp/data/h5py/'  # path for saving data collection samples
+DATAPATH = '~/grasping_robot/results/h5py/'  # path for saving data collection samples
 
 # CONTROL
 PRELIFT_HEIGHT = .2

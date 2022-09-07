@@ -22,7 +22,7 @@ git clone https://github.com/wtprew/grasping_robot.git
 In order to make inferences using Pytorch and trained models, first create a virtual environment and install requirements.txt.
 ```
 virtualenv -p python3 venv
-source activate venv/bin/activate
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 <details>
@@ -58,13 +58,14 @@ You can launch the ROS realsense with the command:
 roslaunch realsense2_camera rs_camera.launch
 ```
 see https://github.com/IntelRealSense/realsense-ros for details
+</details>
 
 You can launch an RVIZ control for the WidowX arm with the command:
 ```
 roslaunch widowx_arm_bringup arm_moveit.launch sim:=false sr300:=false
 ```
 see https://github.com/Interbotix/widowx_arm for details
-</details>
+
 
 ***
 
