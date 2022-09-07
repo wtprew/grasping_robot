@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO)
 
 def parse_args():
 	parser = argparse.ArgumentParser(description='Evaluate network')
-	parser.add_argument('--network', type=str, default='//home/capture/WidowX_OpenDay_Demo/robot/trained_models/GRConv_RGBD_Pos_1bin/epoch_33_iou_0.91',
+	parser.add_argument('--network', type=str, default='~/grasping_robot/trained_models/GRConv_RGBD_Pos_1bin/epoch_33',
 						help='Path to saved network to evaluate')
 	parser.add_argument('--use-depth', type=int, default=1,
 						help='Use Depth image for evaluation (1/0)')

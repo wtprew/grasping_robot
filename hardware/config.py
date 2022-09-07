@@ -1,12 +1,12 @@
 import numpy as np
 from geometry_msgs.msg import Quaternion
 
-homedir = '/home/capture/ros_ws/intrinsics'
+homedir = '~/ros_ws/intrinsics'
 
 # MODELS
 
 # DATA COLLECTION
-DATAPATH = '/home/capture/grasp/data/h5py/'  # path for saving data collection samples
+DATAPATH = '~/grasp/data/h5py/'  # path for saving data collection samples
 
 # CONTROL
 PRELIFT_HEIGHT = .2

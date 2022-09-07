@@ -56,12 +56,6 @@ def main(datapath, save, model, manual, sweep, start, samples):
 	print("Cuda available: " + str(use_cuda))
 	device = torch.device("cuda" if use_cuda else "cpu")	
 	
-	if args.model == "LevineNet":
-		model = LevineNet().to(device)
-		sd = torch.load('/media/will/research/grasp/models/RGB-SD.pt')
-		model.load_state_dict(sd)
-		model.eval()
-	
 	sample_id = args.start
 
 	if args.sweep == True:

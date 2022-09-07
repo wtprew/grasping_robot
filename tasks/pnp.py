@@ -18,7 +18,7 @@ class PickAndPlace:
 	def __init__(
 			self,
 			place_position,
-			datapath = '/home/capture/ros_ws/intrinsics',
+			datapath = homedir,
 			hover_distance=0.12,
 			step_size=0.05):
 		"""

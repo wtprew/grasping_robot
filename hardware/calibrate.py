@@ -1,24 +1,11 @@
 import os
 import numpy as np
 import rospy
-import argparse
 
+from config import homedir
 from clickcontrol import ClickControl
 from sklearn.linear_model import LinearRegression
 from scipy import optimize
-
-# def compute_calibration(robot_points, camera_points):
-#     lr = LinearRegression().fit(camera_points, robot_points)
-#     predicted = lr.predict(camera_points)
-#     residuals = np.abs(predicted - robot_points)
-
-#     co = lr.coef_
-#     trans = lr.intercept_
-#     tf_matrix = np.matrix([[co[0, 0],	co[0, 1],	co[0, 2],	trans[0]],
-#                            [co[1, 0],	co[1, 1],	co[1, 2],	trans[1]],
-#                            [co[2, 0],	co[2, 1],	co[2, 2],	trans[2]],
-#                            [0.0,		0.0,		0.0,		1.0		]])
-#     return tf_matrix, residuals
 
 class Calibration:
 	def __init__(self, cam_id, execute, calibrate):
@@ -32,7 +19,7 @@ class Calibration:
 		self.observed_pix = []
 		self.world2camera = np.eye(4)
 
-		self.homedir = "/home/capture/ros_ws/intrinsics"
+		self.homedir = homedir
 		self.move_completed = os.path.join(self.homedir, "move_completed.npy")
 		self.tool_position = os.path.join(self.homedir, "tool_position.npy")
 
@@ -66,10 +53,8 @@ class Calibration:
 		return camera_pose
 
 	def run(self):
-		# rospy.init_node("calibration")
-
-		executor = ClickControl(cam_id=self.cam_id, execute=self.execute, calibrate=self.calibrate)
 		print('Please close the window with "q" to finish gathering correspondences')
+		executor = ClickControl(cam_id=self.cam_id, execute=self.execute, calibrate=self.calibrate)
 		executor.run()
 
 		rospy.sleep(2)

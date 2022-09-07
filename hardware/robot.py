@@ -5,6 +5,7 @@ from __future__ import absolute_import, division, print_function
 import pickle
 import sys
 import traceback
+import os
 
 import moveit_commander
 import moveit_msgs.msg
@@ -75,9 +76,9 @@ class WidowX(object):
 			print("Printing robot state")
 			print(self.robot.get_current_state())
 
-		homedir = os.path.join('/media/will/research/ros_ws/intrinsics')
-		self.move_completed = os.path.join(homedir, "move_completed.npy")
-		self.tool_position = os.path.join(homedir, "tool_position.npy")
+		self.homedir = homedir
+		self.move_completed = os.path.join(self.homedir, "move_completed.npy")
+		self.tool_position = os.path.join(self.homedir, "tool_position.npy")
 	  
 		self.sample = {}  
 

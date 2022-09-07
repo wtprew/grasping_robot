@@ -12,6 +12,7 @@ import traceback
 
 from camera import RealSenseCamera
 
+from config import homedir
 from robot import WidowX
 from config import *
 from utils import *
@@ -68,9 +69,9 @@ class ClickControl:
         self.execute = execute
         self.calibrate = calibrate
 
-        homedir = "/home/capture/ros_ws/intrinsics"
-        self.move_completed = os.path.join(homedir, "move_completed.npy")
-        self.tool_position = os.path.join(homedir, "tool_position.npy")
+        self.homedir = homedir
+        self.move_completed = os.path.join(self.homedir, "move_completed.npy")
+        self.tool_position = os.path.join(self.homedir, "tool_position.npy")
         #Rotation Matrix
         cm = os.path.join(homedir, "camera_pose.npy")
         self.cm = np.load(cm)
