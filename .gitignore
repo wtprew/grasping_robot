@@ -3,4 +3,7 @@ __pycache__
 .vscode
 datacollection.py
 generate_figures.py
-trained_models
+results
+trained_models/Unet_RGBD_Pos_1bin/unet_rgbd_1bin_half_positional.pt
+trained_models/Unet_RGBD_Pos_3bin/unet_rgbd_3bin_one_pos.pt
+trained_models/Unet_RGBD_Pos_3bin/unet_rgbd_3bin_quart.pt

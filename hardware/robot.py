@@ -523,7 +523,7 @@ def main():
 	try:
 		robot = WidowX()
 		pose = robot.get_current_pose().pose
-		#for debuggin to control the gripper directly
+		#for debugging to control the gripper directly
 		import ipdb; ipdb.set_trace()
 	except rospy.ROSInterruptException:
 		return

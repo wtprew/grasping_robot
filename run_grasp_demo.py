@@ -42,8 +42,8 @@ if __name__ == '__main__':
 		bins = args.bins,
 		visualise=args.vis
 	)
-	# if args.network is not None:
-	generator.load_model_dict(args.network)
-	# else:
-	# 	generator.load_model()
+	if args.network is not None:
+		generator.load_model_dict(args.network)
+	else:
+		generator.load_model()
 	generator.run()
